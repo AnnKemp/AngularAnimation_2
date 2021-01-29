@@ -31,6 +31,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       transition('open <=> closed', [
         animate('5s')
       ]),
+       // deze transitie hier onder wordt enkel aangesproken als die hier boven afwezig zijn, als er hierboven geen andere mogelijkheden zijn voor dezelfde states
+       transition('* <=> *', [
+        animate('10s')
+      ]),
     ]),
   ],
   templateUrl: './open-close.component.html',
