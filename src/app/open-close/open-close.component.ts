@@ -18,11 +18,18 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         backgroundColor: 'green'
       })),
       // zo moet je niet meer transitions schrijven als je meer state's toevoegt, * is voor alle states
-      transition('* => closed', [
+     transition('* => closed', [
         animate('1s')
       ]),
       transition('* => open', [
         animate('0.5s')
+      ]),
+      transition('* => open', [
+        animate('0.5s')
+      ]),
+      // deze transitie hier onder wordt enkel aangesproken als die hier boven afwezig zijn, als er hierboven geen andere mogelijkheden zijn voor dezelfde states
+      transition('open <=> closed', [
+        animate('5s')
       ]),
     ]),
   ],
